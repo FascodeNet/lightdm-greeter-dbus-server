@@ -8,8 +8,9 @@ set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
 
 find_package(Qt5Core)
 
@@ -27,4 +28,4 @@ add_executable(lightdm-krkr-grpc-server
   lightdmobject.cpp
   lightdmobject.h
 )
-target_link_libraries(lightdm-krkr-grpc-server Qt${QT_VERSION_MAJOR}::Core ${LIGHTDM_QT_LIBRARIES})
+target_link_libraries(lightdm-krkr-grpc-server Qt${QT_VERSION_MAJOR}::Core grpc++ ${LIGHTDM_QT_LIBRARIES})
