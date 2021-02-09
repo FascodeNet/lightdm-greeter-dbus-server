@@ -13,7 +13,16 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(Qt5Core)
 
+include(FindPkgConfig)
+pkg_check_modules(LIGHTDM_QT liblightdm-qt5-3)
+
+include_directories ( ${CMAKE_CURRENT_SOURCE_DIR}
+                      ${CMAKE_CURRENT_BINARY_DIR}
+                      ${LIGHTDM_QT_INCLUDE_DIRS}
+)
+
+
 add_executable(lightdm-krkr-grpc-server
   main.cpp
 )
-target_link_libraries(lightdm-krkr-grpc-server Qt${QT_VERSION_MAJOR}::Core)
+target_link_libraries(lightdm-krkr-grpc-server Qt${QT_VERSION_MAJOR}::Core ${LIGHTDM_QT_LIBRARIES})
