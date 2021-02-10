@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.14)
 
-project(lightdm-krkr-grpc-server LANGUAGES CXX)
+project(lightdm-krkr-dbus-server LANGUAGES CXX)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
@@ -23,9 +23,9 @@ include_directories ( ${CMAKE_CURRENT_SOURCE_DIR}
 )
 
 
-add_executable(lightdm-krkr-grpc-server
+add_executable(lightdm-krkr-dbus-server
   main.cpp
   lightdmobject.cpp
   lightdmobject.h
 )
-target_link_libraries(lightdm-krkr-grpc-server Qt${QT_VERSION_MAJOR}::Core grpc++ ${LIGHTDM_QT_LIBRARIES})
+target_link_libraries(lightdm-krkr-dbus-server Qt${QT_VERSION_MAJOR}::Core ${LIGHTDM_QT_LIBRARIES})
