@@ -12,7 +12,7 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 
-find_package(Qt5Core)
+find_package(Qt5 COMPONENTS Core DBus REQUIRED)
 
 include(FindPkgConfig)
 pkg_check_modules(LIGHTDM_QT liblightdm-qt5-3)
@@ -21,11 +21,18 @@ include_directories ( ${CMAKE_CURRENT_SOURCE_DIR}
                       ${CMAKE_CURRENT_BINARY_DIR}
                       ${LIGHTDM_QT_INCLUDE_DIRS}
 )
+set(dbus_xml net.fascode.lightdm.krkr_dbus.xml)
+set(SOURCES
+    main.cpp
+    lightdmobject.cpp
+    lightdmobject.h
+    dbus_lightdm_server.cpp
+    dbus_lightdm_server.h)
+qt5_add_dbus_interface(SOURCES ${dbus_xml} lightdm_krkr_dbus_ifce)
+qt5_add_dbus_adaptor(SOURCES ${dbus_xml} lightdmobject.h lightdmobject)
 
 
 add_executable(lightdm-krkr-dbus-server
-  main.cpp
-  lightdmobject.cpp
-  lightdmobject.h
+    ${SOURCES}
 )
-target_link_libraries(lightdm-krkr-dbus-server Qt${QT_VERSION_MAJOR}::Core ${LIGHTDM_QT_LIBRARIES})
+target_link_libraries(lightdm-krkr-dbus-server Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::DBus ${LIGHTDM_QT_LIBRARIES})

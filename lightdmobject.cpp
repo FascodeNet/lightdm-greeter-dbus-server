@@ -24,13 +24,14 @@ QStringList lightdmobject::get_session_list(){
     return sessions_str;
 }
 
-void lightdmobject::select_user(QString user){
+QString lightdmobject::select_user(QString user){
     if(m_greeter.inAuthentication()){
         m_greeter.cancelAuthentication();
     }
     if(user != nullptr){
         m_greeter.authenticate(user);
     }
+    return user;
 }
 QString lightdmobject::get_icon(QString user){
 
@@ -45,8 +46,9 @@ QString lightdmobject::get_icon(QString user){
 void lightdmobject::auth(QString password){
     m_greeter.respond(password);
 }
-void lightdmobject::set_session(QString sess){
+QString lightdmobject::set_session(QString sess){
     current_session = sess;
+    return sess;
 }
 void lightdmobject::authenticationComplete(){
     if(m_greeter.isAuthenticated()){

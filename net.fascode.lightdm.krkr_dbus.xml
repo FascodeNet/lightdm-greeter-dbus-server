@@ -1,0 +1,23 @@
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<node>
+    <interface name="net.fascode.lightdm.krkr_dbus">
+        <method name="set_session">
+            <arg name="sessioname" type="s" direction="in"/>
+            <arg type="s" direction="out" />
+        </method>
+        <method name="get_user_list">
+            <arg type="as" direction="out"/>
+        </method>
+        <method name="get_session_list">
+            <arg type="as" direction="out"/>
+        </method>
+        <method name="get_icon">
+            <arg name="user" direction="in" type="s"/>
+            <arg type="s" direction="out" />
+        </method>
+        <method name="select_user">
+            <arg name="user" direction="in" type="s"/>
+            <arg type="s" direction="out" />
+        </method>
+    </interface>
+</node>

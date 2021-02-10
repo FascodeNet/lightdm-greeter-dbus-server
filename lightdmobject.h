@@ -14,10 +14,10 @@ public:
     explicit lightdmobject(QObject *parent = nullptr);
     QStringList get_user_list();
     QStringList get_session_list();
-    void select_user(QString);
+    QString select_user(QString);
     QString get_icon(QString);
     void auth(QString);
-    void set_session(QString);
+    QString set_session(QString);
     void sleep();
     void shutdown();
     void reboot();
