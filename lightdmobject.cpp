@@ -70,3 +70,17 @@ void lightdmobject::hibernate(){
 void lightdmobject::sleep(){
     m_power.suspend();
 }
+bool lightdmobject::authorize(QString pass){
+    {
+        QEventLoop loop;
+        loop.connect(&m_greeter,SIGNAL(authenticationComplete()),SLOT(quit()));
+
+        m_greeter.respond(pass);
+        loop.exec();
+    }
+    if(m_greeter.isAuthenticated()){
+        return m_greeter.startSessionSync(current_session);
+    }else{
+        return false;
+    }
+}

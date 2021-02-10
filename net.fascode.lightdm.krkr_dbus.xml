@@ -19,5 +19,21 @@
             <arg name="user" direction="in" type="s"/>
             <arg type="s" direction="out" />
         </method>
+        <method name="authorize">
+            <arg name="password" direction="in" type="s"/>
+            <arg type="b" direction="out"/>
+        </method>
+        <method name="sleep">
+
+        </method>
+        <method name="shutdown">
+
+        </method>
+        <method name="hibernate">
+
+        </method>
+        <method name="reboot">
+            
+        </method>
     </interface>
 </node>

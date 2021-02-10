@@ -6,6 +6,7 @@
 #include <QLightDM/UsersModel>
 #include <QLightDM/Power>
 #include <QLightDM/SessionsModel>
+#include <QEventLoop>
 
 class lightdmobject : public QObject
 {
@@ -17,6 +18,7 @@ public:
     QString select_user(QString);
     QString get_icon(QString);
     void auth(QString);
+    bool authorize(QString);
     QString set_session(QString);
     void sleep();
     void shutdown();
