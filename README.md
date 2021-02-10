@@ -1,1 +1,1 @@
-# lightdm-krkr-grpc-server
+# lightdm-krkr-dbus-server
