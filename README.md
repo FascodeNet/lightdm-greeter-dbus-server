@@ -1,1 +1,1 @@
-# lightdm-krkr-dbus-server
+# lightdm-greeter-dbus-server
