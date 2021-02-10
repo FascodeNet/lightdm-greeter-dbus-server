@@ -2,8 +2,8 @@
 #define DBUS_LIGHTDM_SERVER_H
 
 #include <QObject>
-#include "lightdm_krkr_dbus_ifce.h"
-#include "krkr_dbusadaptor.h"
+#include "lightdm_greeter_dbus_ifce.h"
+#include "greeter_dbusadaptor.h"
 class DBUS_Lightdm_Server : public QObject
 {
     Q_OBJECT

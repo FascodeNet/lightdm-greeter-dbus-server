@@ -25,7 +25,7 @@ void DBUS_Lightdm_Server::setupDbus(){
     if(!session.registerObject(m_objNameBase + m_receiverName,&lightdm_obj)){
         std::cerr << "can't obj reg" << std::endl;
     }
-    new Krkr_dbusAdaptor(&lightdm_obj);
+    new Greeter_dbusAdaptor(&lightdm_obj);
 }
 void DBUS_Lightdm_Server::connectSyncMessage(){
     QDBusConnection session=QDBusConnection::connectToBus(QDBusConnection::SessionBus,m_senderName);

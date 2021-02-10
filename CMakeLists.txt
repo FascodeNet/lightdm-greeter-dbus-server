@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.14)
 
-project(lightdm-krkr-dbus-server LANGUAGES CXX)
+project(lightdm-greeter-dbus-server LANGUAGES CXX)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
@@ -21,7 +21,7 @@ include_directories ( ${CMAKE_CURRENT_SOURCE_DIR}
                       ${CMAKE_CURRENT_BINARY_DIR}
                       ${LIGHTDM_QT_INCLUDE_DIRS}
 )
-set(dbus_xml net.fascode.lightdm.krkr_dbus.xml)
+set(dbus_xml net.fascode.lightdm.greeter_dbus.xml)
 set(SOURCES
     main.cpp
     lightdmobject.cpp
@@ -30,11 +30,11 @@ set(SOURCES
     greeter_subprocess_runner.h
     dbus_lightdm_server.cpp
     dbus_lightdm_server.h)
-qt5_add_dbus_interface(SOURCES ${dbus_xml} lightdm_krkr_dbus_ifce)
+qt5_add_dbus_interface(SOURCES ${dbus_xml} lightdm_greeter_dbus_ifce)
 qt5_add_dbus_adaptor(SOURCES ${dbus_xml} lightdmobject.h lightdmobject)
 
 
-add_executable(lightdm-krkr-dbus-server
+add_executable(lightdm-greeter-dbus-server
     ${SOURCES}
 )
-target_link_libraries(lightdm-krkr-dbus-server Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::DBus ${LIGHTDM_QT_LIBRARIES})
+target_link_libraries(lightdm-greeter-dbus-server Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::DBus ${LIGHTDM_QT_LIBRARIES})
