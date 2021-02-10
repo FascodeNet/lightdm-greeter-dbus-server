@@ -7,8 +7,8 @@ int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
 
-    QString pathBase = "net.fascode.lightdm.krkr_dbus.";
-    QString objBase = "/net/fascode/lightdm/krkr_dbus/";
+    QString pathBase = "net.fascode.lightdm.greeter_dbus.";
+    QString objBase = "/net/fascode/lightdm/greeter_dbus/";
     QString	senderName = "sender";
     QString receiverName = "recevier";
 
