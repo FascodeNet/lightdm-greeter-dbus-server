@@ -9,7 +9,7 @@
 #include <stdlib.h>
 #include <sys/wait.h>
 #include <sys/types.h>
-#include <errno.h>
+#include <errno.h> 
 #include <signal.h>
 class greeter_subprocess_runner : public QObject
 {
