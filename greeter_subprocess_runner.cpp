@@ -1,8 +1,8 @@
 #include "greeter_subprocess_runner.h"
 
-greeter_subprocess_runner::greeter_subprocess_runner(QObject *parent) : QObject(parent)
+greeter_subprocess_runner::greeter_subprocess_runner(QString running_cl,QObject *parent) : QObject(parent)
 {
-
+    running_client=running_cl;
 }
 static void handler_sig(int signum){
     printf("EXIT");
@@ -29,7 +29,7 @@ void greeter_subprocess_runner::run(){
         QCoreApplication::exit(-1);
     }else if(pid == 0){
         //child process
-        execlp("vlc","vlc",NULL); //test
+        execlp(running_client.toUtf8().data(),running_client.toUtf8().data(),NULL); //test
         perror("execlp");
         QCoreApplication::exit(-2);
     }

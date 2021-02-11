@@ -29,7 +29,9 @@ set(SOURCES
     greeter_subprocess_runner.cpp
     greeter_subprocess_runner.h
     dbus_lightdm_server.cpp
-    dbus_lightdm_server.h)
+    dbus_lightdm_server.h
+    settings_manager.cpp
+    settings_manager.h)
 qt5_add_dbus_interface(SOURCES ${dbus_xml} lightdm_greeter_dbus_ifce)
 qt5_add_dbus_adaptor(SOURCES ${dbus_xml} lightdmobject.h lightdmobject)
 

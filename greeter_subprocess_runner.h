@@ -15,8 +15,10 @@ class greeter_subprocess_runner : public QObject
 {
     Q_OBJECT
 public:
-    explicit greeter_subprocess_runner(QObject *parent = nullptr);
+    explicit greeter_subprocess_runner(QString running_cl,QObject *parent = nullptr);
     void exit_app();
+private:
+    QString running_client;
 public slots:
     void run();
 signals:
